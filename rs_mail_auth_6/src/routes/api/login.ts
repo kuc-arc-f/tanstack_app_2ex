@@ -21,10 +21,10 @@ export const Route = createFileRoute('/api/login')({
             data: body,
           })
         }
-        if (typeof password !== 'string' || password.length < 6 || password.length > 128) {
+        if (typeof password !== 'string' || password.length < 8 || password.length > 128) {
           return Response.json({
             success: false,
-            message: 'password は 6〜128 文字です',
+            message: 'password は 8〜128 文字です',
             data: body,
           })
         }
