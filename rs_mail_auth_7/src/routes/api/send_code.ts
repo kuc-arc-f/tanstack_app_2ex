@@ -1,12 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
-//import { db } from "../../db";
-//import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import path from 'path';
 import { promises as fs } from 'fs';
-//import totp from '../../lib/totp';
 import Config from '../../config'
-const ISSUER = process.env.TOTP_ISSUER || 'MyWebApp';
 
 const BCRYPT_ROUNDS = 10;
 const OTP_TTL_MS = Number(process.env.OTP_TTL_MINUTES || 5) * 60 * 1000;
