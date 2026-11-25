@@ -23,6 +23,10 @@ Rust + TanStack Start , authrize mail postgresql
 
 https://github.com/kuc-arc-f/rs_axum_3ex/tree/main/mail_auth_7
 
+***
+* port:
+* tanstack-start: 9000
+* Rust API: 3000
 
 ***
 
