@@ -23,6 +23,10 @@ Rust + TanStack Start , authrize mail example
 
 https://github.com/kuc-arc-f/rs_axum_3ex/tree/main/mail_auth_6
 
+***
+* port:
+* tanstack-start: 9000
+* Rust API: 3000
 
 ***
 
