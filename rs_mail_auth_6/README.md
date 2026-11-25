@@ -46,4 +46,7 @@ npm run dev
 * V_0_9_1: new
 
 ***
+### blog
+
+https://zenn.dev/knaka0209/scraps/bd26398093b1b6
 
