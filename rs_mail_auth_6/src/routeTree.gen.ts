@@ -19,15 +19,10 @@ import { Route as RedirectRouteImport } from './routes/redirect'
 import { Route as SetupRouteImport } from './routes/setup'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PathlessLayoutNestedLayoutRouteImport } from './routes/_pathlessLayout/_nested-layout'
-import { Route as ApiEnableRouteImport } from './routes/api/enable'
 import { Route as ApiLoginRouteImport } from './routes/api/login'
-import { Route as ApiOtp_mail_requestRouteImport } from './routes/api/otp_mail_request'
-import { Route as ApiOtp_mail_verifyRouteImport } from './routes/api/otp_mail_verify'
 import { Route as ApiRegisterRouteImport } from './routes/api/register'
 import { Route as ApiSend_codeRouteImport } from './routes/api/send_code'
-import { Route as ApiSetupRouteImport } from './routes/api/setup'
 import { Route as ApiTestRouteImport } from './routes/api/test'
-import { Route as ApiTodosRouteImport } from './routes/api/todos'
 import { Route as ApiUser_get_idRouteImport } from './routes/api/user_get_id'
 import { Route as ApiUser_get_nameRouteImport } from './routes/api/user_get_name'
 import { Route as ApiVerify_emailRouteImport } from './routes/api/verify_email'
@@ -83,24 +78,9 @@ const PathlessLayoutNestedLayoutRoute =
     id: '/_nested-layout',
     getParentRoute: () => PathlessLayoutRoute,
   } as any)
-const ApiEnableRoute = ApiEnableRouteImport.update({
-  id: '/api/enable',
-  path: '/api/enable',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiLoginRoute = ApiLoginRouteImport.update({
   id: '/api/login',
   path: '/api/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiOtp_mail_requestRoute = ApiOtp_mail_requestRouteImport.update({
-  id: '/api/otp_mail_request',
-  path: '/api/otp_mail_request',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiOtp_mail_verifyRoute = ApiOtp_mail_verifyRouteImport.update({
-  id: '/api/otp_mail_verify',
-  path: '/api/otp_mail_verify',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiRegisterRoute = ApiRegisterRouteImport.update({
@@ -113,19 +93,9 @@ const ApiSend_codeRoute = ApiSend_codeRouteImport.update({
   path: '/api/send_code',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiSetupRoute = ApiSetupRouteImport.update({
-  id: '/api/setup',
-  path: '/api/setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiTestRoute = ApiTestRouteImport.update({
   id: '/api/test',
   path: '/api/test',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiTodosRoute = ApiTodosRouteImport.update({
-  id: '/api/todos',
-  path: '/api/todos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiUser_get_idRoute = ApiUser_get_idRouteImport.update({
@@ -165,15 +135,10 @@ export interface FileRoutesByFullPath {
   '/redirect': typeof RedirectRoute
   '/setup': typeof SetupRoute
   '/signup': typeof SignupRoute
-  '/api/enable': typeof ApiEnableRoute
   '/api/login': typeof ApiLoginRoute
-  '/api/otp_mail_request': typeof ApiOtp_mail_requestRoute
-  '/api/otp_mail_verify': typeof ApiOtp_mail_verifyRoute
   '/api/register': typeof ApiRegisterRoute
   '/api/send_code': typeof ApiSend_codeRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
-  '/api/todos': typeof ApiTodosRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
   '/api/verify_email': typeof ApiVerify_emailRoute
@@ -189,15 +154,10 @@ export interface FileRoutesByTo {
   '/redirect': typeof RedirectRoute
   '/setup': typeof SetupRoute
   '/signup': typeof SignupRoute
-  '/api/enable': typeof ApiEnableRoute
   '/api/login': typeof ApiLoginRoute
-  '/api/otp_mail_request': typeof ApiOtp_mail_requestRoute
-  '/api/otp_mail_verify': typeof ApiOtp_mail_verifyRoute
   '/api/register': typeof ApiRegisterRoute
   '/api/send_code': typeof ApiSend_codeRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
-  '/api/todos': typeof ApiTodosRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
   '/api/verify_email': typeof ApiVerify_emailRoute
@@ -216,15 +176,10 @@ export interface FileRoutesById {
   '/setup': typeof SetupRoute
   '/signup': typeof SignupRoute
   '/_pathlessLayout/_nested-layout': typeof PathlessLayoutNestedLayoutRouteWithChildren
-  '/api/enable': typeof ApiEnableRoute
   '/api/login': typeof ApiLoginRoute
-  '/api/otp_mail_request': typeof ApiOtp_mail_requestRoute
-  '/api/otp_mail_verify': typeof ApiOtp_mail_verifyRoute
   '/api/register': typeof ApiRegisterRoute
   '/api/send_code': typeof ApiSend_codeRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
-  '/api/todos': typeof ApiTodosRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
   '/api/verify_email': typeof ApiVerify_emailRoute
@@ -242,15 +197,10 @@ export interface FileRouteTypes {
     | '/redirect'
     | '/setup'
     | '/signup'
-    | '/api/enable'
     | '/api/login'
-    | '/api/otp_mail_request'
-    | '/api/otp_mail_verify'
     | '/api/register'
     | '/api/send_code'
-    | '/api/setup'
     | '/api/test'
-    | '/api/todos'
     | '/api/user_get_id'
     | '/api/user_get_name'
     | '/api/verify_email'
@@ -266,15 +216,10 @@ export interface FileRouteTypes {
     | '/redirect'
     | '/setup'
     | '/signup'
-    | '/api/enable'
     | '/api/login'
-    | '/api/otp_mail_request'
-    | '/api/otp_mail_verify'
     | '/api/register'
     | '/api/send_code'
-    | '/api/setup'
     | '/api/test'
-    | '/api/todos'
     | '/api/user_get_id'
     | '/api/user_get_name'
     | '/api/verify_email'
@@ -292,15 +237,10 @@ export interface FileRouteTypes {
     | '/setup'
     | '/signup'
     | '/_pathlessLayout/_nested-layout'
-    | '/api/enable'
     | '/api/login'
-    | '/api/otp_mail_request'
-    | '/api/otp_mail_verify'
     | '/api/register'
     | '/api/send_code'
-    | '/api/setup'
     | '/api/test'
-    | '/api/todos'
     | '/api/user_get_id'
     | '/api/user_get_name'
     | '/api/verify_email'
@@ -318,15 +258,10 @@ export interface RootRouteChildren {
   RedirectRoute: typeof RedirectRoute
   SetupRoute: typeof SetupRoute
   SignupRoute: typeof SignupRoute
-  ApiEnableRoute: typeof ApiEnableRoute
   ApiLoginRoute: typeof ApiLoginRoute
-  ApiOtp_mail_requestRoute: typeof ApiOtp_mail_requestRoute
-  ApiOtp_mail_verifyRoute: typeof ApiOtp_mail_verifyRoute
   ApiRegisterRoute: typeof ApiRegisterRoute
   ApiSend_codeRoute: typeof ApiSend_codeRoute
-  ApiSetupRoute: typeof ApiSetupRoute
   ApiTestRoute: typeof ApiTestRoute
-  ApiTodosRoute: typeof ApiTodosRoute
   ApiUser_get_idRoute: typeof ApiUser_get_idRoute
   ApiUser_get_nameRoute: typeof ApiUser_get_nameRoute
   ApiVerify_emailRoute: typeof ApiVerify_emailRoute
@@ -404,32 +339,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PathlessLayoutNestedLayoutRouteImport
       parentRoute: typeof PathlessLayoutRoute
     }
-    '/api/enable': {
-      id: '/api/enable'
-      path: '/api/enable'
-      fullPath: '/api/enable'
-      preLoaderRoute: typeof ApiEnableRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/login': {
       id: '/api/login'
       path: '/api/login'
       fullPath: '/api/login'
       preLoaderRoute: typeof ApiLoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/otp_mail_request': {
-      id: '/api/otp_mail_request'
-      path: '/api/otp_mail_request'
-      fullPath: '/api/otp_mail_request'
-      preLoaderRoute: typeof ApiOtp_mail_requestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/otp_mail_verify': {
-      id: '/api/otp_mail_verify'
-      path: '/api/otp_mail_verify'
-      fullPath: '/api/otp_mail_verify'
-      preLoaderRoute: typeof ApiOtp_mail_verifyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/register': {
@@ -446,25 +360,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSend_codeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/setup': {
-      id: '/api/setup'
-      path: '/api/setup'
-      fullPath: '/api/setup'
-      preLoaderRoute: typeof ApiSetupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/test': {
       id: '/api/test'
       path: '/api/test'
       fullPath: '/api/test'
       preLoaderRoute: typeof ApiTestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/todos': {
-      id: '/api/todos'
-      path: '/api/todos'
-      fullPath: '/api/todos'
-      preLoaderRoute: typeof ApiTodosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/user_get_id': {
@@ -545,15 +445,10 @@ const rootRouteChildren: RootRouteChildren = {
   RedirectRoute: RedirectRoute,
   SetupRoute: SetupRoute,
   SignupRoute: SignupRoute,
-  ApiEnableRoute: ApiEnableRoute,
   ApiLoginRoute: ApiLoginRoute,
-  ApiOtp_mail_requestRoute: ApiOtp_mail_requestRoute,
-  ApiOtp_mail_verifyRoute: ApiOtp_mail_verifyRoute,
   ApiRegisterRoute: ApiRegisterRoute,
   ApiSend_codeRoute: ApiSend_codeRoute,
-  ApiSetupRoute: ApiSetupRoute,
   ApiTestRoute: ApiTestRoute,
-  ApiTodosRoute: ApiTodosRoute,
   ApiUser_get_idRoute: ApiUser_get_idRoute,
   ApiUser_get_nameRoute: ApiUser_get_nameRoute,
   ApiVerify_emailRoute: ApiVerify_emailRoute,

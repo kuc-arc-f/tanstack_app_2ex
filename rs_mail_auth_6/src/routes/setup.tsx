@@ -59,15 +59,6 @@ function RouteComponent() {
         console.log("Cookie not found, redirecting to /login");
         return;
       }
-      const resp  = await apiHandle('/api/setup', 
-        { userId: Number(value) }
-      );
-      console.log(resp);
-      if(!resp.success){
-        alert("error")
-      }else{
-        setImgSrc(resp.data.qrDataUrl);
-      }      
     }catch(e){console.log(e)}
     return;    
   };
