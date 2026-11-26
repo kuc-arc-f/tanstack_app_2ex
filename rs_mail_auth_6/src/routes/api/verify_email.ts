@@ -30,6 +30,14 @@ export const Route = createFileRoute('/api/verify_email')({
         console.log(body)
         const email = body.email;
         const code = typeof body?.code === 'string' ? body.code.trim() : '';
+        if (code.length !== 6) {
+          return Response.json({
+            success: false,
+            message: `error, code-length <> 6 length`,
+            data: {},
+          })            
+        };
+
         if (!isValidEmail(email)) {
           return Response.json({
             success: false,
@@ -50,6 +58,7 @@ export const Route = createFileRoute('/api/verify_email')({
             body: JSON.stringify(data) // データをJSON文字列に変換
           });
           if (!response.ok) {
+            console.error("error, response.ok = NG")
             throw new Error(`HTTPエラー! ステータス: ${response.status}`);
           }
           // 返ってきたJSONデータを解析
@@ -64,7 +73,7 @@ export const Route = createFileRoute('/api/verify_email')({
           console.error(error);
           return Response.json({
             success: false,
-            message: "error",
+            message: "error" + error,
             data: {},
           })             
         }        

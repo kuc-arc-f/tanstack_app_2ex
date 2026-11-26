@@ -14,6 +14,7 @@ function RouteComponent() {
   const [password, setPassword] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [auth2Disp, setAuth2Disp] = useState('');
+  const [errMsg, setErrMsg] = useState("");
 
   const apiHandle = async function(path, body){
     console.log("#apiHandle")
@@ -76,6 +77,7 @@ function RouteComponent() {
   const verify = async() => {
     console.log("#verify");
     try{
+      setErrMsg("")
       const value = LibAuth.getCookieValue(Config.COOKIE_AUTH_1_KEY)
       console.log('value=', value);
       if(!value){ 
@@ -89,6 +91,7 @@ function RouteComponent() {
       );
       console.log(resp);
       if(!resp.success){
+        setErrMsg(resp.message)
         alert("error")
       }else{
         LibAuth.setCookie(Config.COOKIE_AUTH_2_KEY, Number(value) , 30);
@@ -116,14 +119,22 @@ function RouteComponent() {
           >コード入力</h1>
           <p className="text-neutral-500 text-sm"></p>
         </div>
-
         <div id="setupArea" >
           <p>6桁の認証コード</p>
           <input 
           type="text"
+          maxlength="6"
           defaultValue=""
           id="code_6"  placeholder="" 
           className="w-full p-2 my-2 border border-gray-300 rounded" /><br />
+          <hr />
+          {/* error-text */}
+          <div>  
+            {(errMsg !=="") ? (<div className="text-red-600">
+              {errMsg}
+            </div>
+            ):(<></>)}
+          </div>
           <button onClick={()=>{verify();}} 
           className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
           >認証コード送信</button>

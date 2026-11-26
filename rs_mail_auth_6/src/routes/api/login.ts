@@ -57,7 +57,7 @@ export const Route = createFileRoute('/api/login')({
           console.error('エラーが発生しました:', error);
           return Response.json({
             success: false,
-            message: 'エラーが発生しました:',
+            message: 'エラーが発生しました: '+ error,
             data: body,
           })          
         }        

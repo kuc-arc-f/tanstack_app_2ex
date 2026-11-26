@@ -13,9 +13,9 @@ function PostsComponent() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-  });
-  
+  });  
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -38,28 +38,17 @@ function PostsComponent() {
     e.preventDefault();
     // 登録処理のモック
     console.log("Registered user data:", formData);
+    setErrMsg("")
     try{
       const resp  = await apiHandle('/api/register', 
         { username: formData.email , password: formData.password }
       );
       console.log(resp);
       if(!resp.success){
-        alert("error")
+        setErrMsg(resp.message)
+        alert("error");
       }else{
         location.href = "/login";
-        /*
-        console.log("#start /api/user_get_name");
-        const res2  = await apiHandle('/api/user_get_name', 
-          { username: formData.email}
-        );
-        console.log(res2);
-        if(res2.success){
-          const userId = res2.data.uid;
-          console.log("userId=", userId)
-          LibAuth.setCookie(Config.COOKIE_AUTH_1_KEY, userId , 30);
-          location.href = "/login";
-        }        
-        */
       }
       /*
       if(resp.ret >= 200 && resp.ret <= 209){ location.href = "/login"; }
@@ -149,7 +138,13 @@ function PostsComponent() {
                 />
               </div>
             </div>
-
+            {/* error-text */}
+            <div>  
+              {(errMsg !=="") ? (<div className="text-red-600">
+                {errMsg}
+              </div>
+              ):(<></>)}
+            </div>
             <div className="pt-2">
               <button
                 type="submit"
