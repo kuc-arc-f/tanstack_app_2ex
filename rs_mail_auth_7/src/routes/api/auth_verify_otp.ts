@@ -21,10 +21,11 @@ export const Route = createFileRoute('/api/auth_verify_otp')({
             data: body,
           })
         }
-        if (typeof code !== 'string' || code.length < 3 || email.code > 64) {
+        //if (typeof code !== 'string' || code.length < 3 || email.code > 64) {
+        if (typeof code !== 'string' || code.length !== 6) {
           return Response.json({
             success: false,
-            message: 'error, code = NG',
+            message: 'error, code length <> 6',
             data: body,
           })
         }
@@ -57,7 +58,7 @@ export const Route = createFileRoute('/api/auth_verify_otp')({
           console.error('エラーが発生しました:', error);
           return Response.json({
             success: false,
-            message: 'エラーが発生しました:',
+            message: 'エラーが発生しました:'+ error,
             data: body,
           })          
         }        
