@@ -20,7 +20,6 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PathlessLayoutNestedLayoutRouteImport } from './routes/_pathlessLayout/_nested-layout'
 import { Route as ApiLoginRouteImport } from './routes/api/login'
 import { Route as ApiRegisterRouteImport } from './routes/api/register'
-import { Route as ApiSetupRouteImport } from './routes/api/setup'
 import { Route as ApiTestRouteImport } from './routes/api/test'
 import { Route as ApiUser_get_idRouteImport } from './routes/api/user_get_id'
 import { Route as ApiUser_get_nameRouteImport } from './routes/api/user_get_name'
@@ -83,11 +82,6 @@ const ApiRegisterRoute = ApiRegisterRouteImport.update({
   path: '/api/register',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiSetupRoute = ApiSetupRouteImport.update({
-  id: '/api/setup',
-  path: '/api/setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiTestRoute = ApiTestRouteImport.update({
   id: '/api/test',
   path: '/api/test',
@@ -136,7 +130,6 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/api/login': typeof ApiLoginRoute
   '/api/register': typeof ApiRegisterRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
@@ -155,7 +148,6 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/api/login': typeof ApiLoginRoute
   '/api/register': typeof ApiRegisterRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
@@ -177,7 +169,6 @@ export interface FileRoutesById {
   '/_pathlessLayout/_nested-layout': typeof PathlessLayoutNestedLayoutRouteWithChildren
   '/api/login': typeof ApiLoginRoute
   '/api/register': typeof ApiRegisterRoute
-  '/api/setup': typeof ApiSetupRoute
   '/api/test': typeof ApiTestRoute
   '/api/user_get_id': typeof ApiUser_get_idRoute
   '/api/user_get_name': typeof ApiUser_get_nameRoute
@@ -198,7 +189,6 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/login'
     | '/api/register'
-    | '/api/setup'
     | '/api/test'
     | '/api/user_get_id'
     | '/api/user_get_name'
@@ -217,7 +207,6 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/login'
     | '/api/register'
-    | '/api/setup'
     | '/api/test'
     | '/api/user_get_id'
     | '/api/user_get_name'
@@ -238,7 +227,6 @@ export interface FileRouteTypes {
     | '/_pathlessLayout/_nested-layout'
     | '/api/login'
     | '/api/register'
-    | '/api/setup'
     | '/api/test'
     | '/api/user_get_id'
     | '/api/user_get_name'
@@ -259,7 +247,6 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   ApiLoginRoute: typeof ApiLoginRoute
   ApiRegisterRoute: typeof ApiRegisterRoute
-  ApiSetupRoute: typeof ApiSetupRoute
   ApiTestRoute: typeof ApiTestRoute
   ApiUser_get_idRoute: typeof ApiUser_get_idRoute
   ApiUser_get_nameRoute: typeof ApiUser_get_nameRoute
@@ -344,13 +331,6 @@ declare module '@tanstack/react-router' {
       path: '/api/register'
       fullPath: '/api/register'
       preLoaderRoute: typeof ApiRegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/setup': {
-      id: '/api/setup'
-      path: '/api/setup'
-      fullPath: '/api/setup'
-      preLoaderRoute: typeof ApiSetupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/test': {
@@ -446,7 +426,6 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   ApiLoginRoute: ApiLoginRoute,
   ApiRegisterRoute: ApiRegisterRoute,
-  ApiSetupRoute: ApiSetupRoute,
   ApiTestRoute: ApiTestRoute,
   ApiUser_get_idRoute: ApiUser_get_idRoute,
   ApiUser_get_nameRoute: ApiUser_get_nameRoute,
